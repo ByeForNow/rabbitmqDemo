@@ -6,7 +6,7 @@ import com.rabbitmq.client.ConnectionFactory;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
-//用于连接的connect类
+//用于连接的connect类，增加备注
 public class ConnectionUtil {
 
     public static Connection getConn() throws IOException, TimeoutException {

@@ -8,7 +8,7 @@ import java.util.concurrent.TimeoutException;
 
 public class Receiver2 {
     //定义交换机的名称
-    static final String EXCHANGE_NAME = "exchange";
+    static final String EXCHANGE_NAME = "";
     static final String QUEUE_NAME = "queue2";
 
     public static void main(String[] args) throws IOException, TimeoutException {

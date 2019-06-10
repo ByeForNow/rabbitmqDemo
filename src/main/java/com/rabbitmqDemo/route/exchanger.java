@@ -1,4 +1,4 @@
-package com.rabbitmqDemo.publish;
+package com.rabbitmqDemo.route;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -7,22 +7,19 @@ import com.rabbitmqDemo.util.ConnectionUtil;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
-public class Sender {
-    //定义交换机的名称
-    static final String EXCHANGE_NAME = "";
+public class exchanger {
+
+    final static String EXCHANGER_NAME = "EXCCHANGER_ROUTE";
 
     public static void main(String[] args) throws IOException, TimeoutException {
         //创建连接
         Connection connection = ConnectionUtil.getConn();
-        //创建channel
+        //创建通道
         Channel channel = connection.createChannel();
+        //创建路由模式的exchanger
+        channel.exchangeDeclare(EXCHANGER_NAME,"direct");
 
-        String msg = "发布订阅模式";
-        //消息是先发布到交换机中，而交换机是没有保存功能的，如果没有消费者，消息就会丢失。
-        channel.basicPublish(EXCHANGE_NAME, "", null, msg.getBytes());
-
-        System.out.println("消息发送完毕");
-
+        System.out.println("Exchanger启动完毕。");
         channel.close();
         connection.close();
     }

@@ -9,7 +9,7 @@ import java.util.concurrent.TimeoutException;
 
 public class Sender {
     //定义交换机的名称
-    static final String EXCHANGE_NAME = "";
+    static final String EXCHANGE_NAME = "exchange";
 
     public static void main(String[] args) throws IOException, TimeoutException {
         //创建连接
